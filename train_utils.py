@@ -5,7 +5,7 @@ import yaml
 
 import numpy as np
 import torch
-from inference_util import sliding_window_inference
+# from inference_util import sliding_window_inference
 from monai.metrics import DiceMetric
 from monai.transforms import (
     Activations,
@@ -117,21 +117,21 @@ class AverageMeter(object):
         return fmtstr.format(**self.__dict__)
 
 
-def inference(input, model, patch_shape = 128):
+# def inference(input, model, patch_shape = 128):
     
-    def predictor(x, crop_indexes=None):
-        return model(x, crop_indexes)
+#     def predictor(x, crop_indexes=None):
+#         return model(x, crop_indexes)
     
-    def _compute(input):
-        return sliding_window_inference(
-            inputs=input,
-            roi_size=(patch_shape, patch_shape, patch_shape),
-            sw_batch_size=1,
-            predictor=predictor,
-            overlap=0.5
-        )
-    with torch.amp.autocast("cuda"):
-        return _compute(input)
+#     def _compute(input):
+#         return sliding_window_inference(
+#             inputs=input,
+#             roi_size=(patch_shape, patch_shape, patch_shape),
+#             sw_batch_size=1,
+#             predictor=predictor,
+#             overlap=0.5
+#         )
+#     with torch.amp.autocast("cuda"):
+#         return _compute(input)
 
 post_trans = Compose(
     [EnsureType(), Activations(sigmoid=True), AsDiscrete(threshold=0.5)]

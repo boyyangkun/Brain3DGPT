@@ -8,7 +8,7 @@ from train_utils import init_config, set_seed
 from trainer import run_training
 from dataset.multimodal_dataset import get_datasets
 from dataset.transforms import *
-from model.ap.openllama import OpenLLAMAPEFTModel
+from model.b3dgpt.openllama import OpenLLAMAPEFTModel
 from loss.dice import EDiceLoss
 from monai.data import DataLoader
 from monai.data.utils import pad_list_data_collate

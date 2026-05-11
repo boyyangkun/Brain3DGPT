@@ -11,7 +11,7 @@ from torch.cuda.amp import autocast as autocast
 from train_utils import inference, cal_metrics, dice_metric, post_trans
 from dataset.multimodal_dataset import format_input
 from dataset.transforms import custom_transform
-from model.ap.openllama import OpenLLAMAPEFTModel
+from model.b3dgpt.openllama import OpenLLAMAPEFTModel
 from loss.dice import EDiceLoss
 from monai.data import DataLoader, Dataset, decollate_batch
 from monai.data.utils import pad_list_data_collate
